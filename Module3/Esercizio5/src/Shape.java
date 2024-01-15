@@ -1,5 +1,4 @@
-public class Shape {
-  public int getArea(){
-    return 0;
-  }
+public abstract class Shape {
+  protected Double area;
+  public abstract int getArea();
 }
