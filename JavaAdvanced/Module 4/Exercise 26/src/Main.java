@@ -31,7 +31,7 @@ public class Main {
         case MAX -> a.max(b);
         case MIN -> a.min(b);
         case DIV -> a.divide(b);
-        case null, default -> throw new RuntimeException("Please insert a valid operation");
+        default -> throw new RuntimeException("Please insert a valid operation");
       };
     }
   }
