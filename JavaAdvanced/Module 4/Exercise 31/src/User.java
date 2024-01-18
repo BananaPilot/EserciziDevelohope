@@ -1,39 +1,39 @@
 public class User {
-  private String name;
-  private String surname;
-  private int age;
+  private String name = "John";
+  private String surname = "Doe";
+  private int age = 18;
+  private static User user;
 
-  public User(String name, String surname, int age) {
-    this.name = name;
-    this.surname = surname;
-    this.age = age;
+  private User() {}
+
+  public static User getUser() {
+    if (user == null){
+      user = new User();
+    }
+    return user;
   }
 
-  public static User getUser(){
-    
-  }
-
-  private String getName() {
+  public String getName() {
     return name;
   }
 
-  private void setName(String name) {
+  public void setName(String name) {
     this.name = name;
   }
 
-  private String getSurname() {
+  public String getSurname() {
     return surname;
   }
 
-  private void setSurname(String surname) {
+  public void setSurname(String surname) {
     this.surname = surname;
   }
 
-  private int getAge() {
+  public int getAge() {
     return age;
   }
 
-  private void setAge(int age) {
+  public void setAge(int age) {
     this.age = age;
   }
 
