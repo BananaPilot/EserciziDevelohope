@@ -1,15 +1,17 @@
 public class Main {
   public static void main(String[] args) {
-    double number = 5;
-    double res = devideForZero(number);
-    if(Double.isInfinite(res)){
-      throw new ArithmeticException("Numbers can't devide by 0");
-    } else {
-      System.out.println(res);
+    try {
+      Divide divide = new Divide();
+      System.out.println(divide.divide(5, 1));
+    } catch (Exception e){
+      System.err.println(e);
     }
   }
+}
 
-  public static double devideForZero(double number) {
-    return number / 0;
+class Divide{
+  public double divide(double number, double div){
+    if (div <= 0) throw new ArithmeticException("number must be grater than 0");
+    return number / div;
   }
 }

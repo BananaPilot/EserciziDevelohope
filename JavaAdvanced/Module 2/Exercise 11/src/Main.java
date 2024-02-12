@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Comparator;
 
 public class Main {
   public static void main(String[] args) {
@@ -12,6 +13,12 @@ public class Main {
       }
     }
     System.out.println(students);
-    //Mettere in ordine la collezione e stampare il risultato -?> cosa mi sta a significare?
+    students.sort(new Comparator<Student>() {
+      @Override
+      public int compare(Student o1, Student o2) {
+        return Integer.valueOf(o1.getAge()).compareTo(o2.getAge());
+      }
+    });
+    System.out.println(students);
   }
 }
