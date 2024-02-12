@@ -13,9 +13,13 @@ public class MainTest {
     int day = date.getDayOfYear();
     String dayS = date.getDayOfWeek().toString().toLowerCase();
     System.out.println(year);
+    assertEquals(2023, year);
     System.out.println(month);
+    assertEquals(Month.MARCH, month);
     System.out.println(day);
+    assertEquals(60, day);
     System.out.println(dayS);
+    assertEquals("wednesday", dayS);
   }
 
   @org.junit.Test
@@ -26,9 +30,13 @@ public class MainTest {
     int day = date.getDayOfMonth();
     String dayS = date.getDayOfWeek().toString().toLowerCase();
     System.out.println(year);
+    assertEquals(2023, year);
     System.out.println(month);
+    assertEquals(3, month);
     System.out.println(day);
+    assertEquals(1, day);
     System.out.println(dayS);
+    assertEquals("wednesday", dayS);
   }
 
   public OffsetDateTime getDate() {
