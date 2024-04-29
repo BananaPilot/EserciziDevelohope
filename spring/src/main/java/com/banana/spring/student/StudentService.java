@@ -1,8 +1,10 @@
 package com.banana.spring.student;
 
 import org.springframework.stereotype.Service;
+import org.springframework.util.Assert;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class StudentService {
@@ -14,7 +16,12 @@ public class StudentService {
     }
 
     public Student getStudent(Long id) {
-        return studentRepo.getReferenceById(id);
+        Optional<Student> student = studentRepo.findById(id);
+        if (student.isEmpty()) {
+            throw new RuntimeException("student is not present");
+        }
+
+        return student.get();
     }
 
     public List<Student> getAll() {
@@ -26,19 +33,17 @@ public class StudentService {
     }
 
     public Student updateStudent(Long id, Student student) {
-        studentRepo.updateStudent(id, student.getNome(), student.getSurname(), student.isWorking());
+        studentRepo.updateStudent(id, student.getName(), student.getSurname(), student.isWorking());
         return getStudent(id);
     }
 
     public Student updateIsWorking(Long id) {
         Student student = studentRepo.getReferenceById(id);
-        student.setIsWorking(!student.isWorking());
+        student.setWorking(!student.isWorking());
         return studentRepo.save(student);
     }
 
-    public Student deleteStudent(Long id) {
-        Student student = studentRepo.getReferenceById(id);
+    public void deleteStudent(Long id) {
         studentRepo.deleteById(id);
-        return student;
     }
 }

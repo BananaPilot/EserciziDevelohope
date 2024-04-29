@@ -1,9 +1,7 @@
 spring:
   jpa:
-    database: h2
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: create
+    database: mysql
   datasource:
-    url: jdbc:h2:mem:mystuff
-    username: root
-    password: 1234
+    url: jdbc:mysql://root:1234@localhost:3306/mystuff
