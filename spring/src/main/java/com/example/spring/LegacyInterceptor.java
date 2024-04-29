@@ -9,6 +9,11 @@ import org.springframework.web.servlet.HandlerInterceptor;
 public class LegacyInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        return !request.getRequestURI().contains("legacy");
+
+        if (request.getRequestURI().contains("legacy")) {
+            response.sendError(410);
+            return false;
+        }
+        return true;
     }
 }
