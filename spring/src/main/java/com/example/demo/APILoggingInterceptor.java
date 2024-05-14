@@ -1,19 +1,19 @@
-package com.example.spring;
+package com.example.demo;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import org.springframework.stereotype.Component;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.servlet.HandlerInterceptor;
 
-@Component
-public class LegacyInterceptor implements HandlerInterceptor {
+public class APILoggingInterceptor implements HandlerInterceptor {
+
+    Logger logger = LoggerFactory.getLogger(APILoggingInterceptor.class);
+
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
 
-        if (request.getRequestURI().contains("legacy")) {
-            response.sendError(410);
-            return false;
-        }
+        logger.info("User-Agent header contents: {}", request.getHeader("User-Agent"));
         return true;
     }
 }
