@@ -25,7 +25,7 @@ public class Flights {
     @Enumerated(EnumType.STRING)
     private Status status;
 
-    protected enum Status {
+    public enum Status {
         ON_TIME, DELAYED, CANCELLED;
     }
 
