@@ -1,5 +1,9 @@
 package com.example.demo.controller;
 
+import com.example.demo.Month;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -8,14 +12,17 @@ import java.time.LocalDateTime;
 @RestController
 public class Controller {
 
-    @GetMapping("/time")
-    public LocalDateTime time() {
-        return LocalDateTime.now();
+    @Autowired
+    private HttpServletRequest request;
+
+    @GetMapping("/")
+    public String hello() {
+        return "Hello User!";
     }
 
-    @GetMapping("/legacy")
-    public String legacy() {
-        return "This is just old code";
+    @GetMapping("/month")
+    public Month getMoth() {
+        return (Month) request.getAttribute("month");
     }
 
 }
