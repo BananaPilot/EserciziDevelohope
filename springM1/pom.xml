@@ -10,7 +10,7 @@
     </parent>
     <groupId>com.banana</groupId>
     <artifactId>springM1</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.3</version>
     <name>springM1</name>
     <description>springM1</description>
     <properties>
