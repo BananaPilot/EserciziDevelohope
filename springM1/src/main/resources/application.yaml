@@ -1,5 +1,2 @@
-server:
-  port: 5000
-authCode: xyz456
-devName: fabio
-homo: true
+val1: 2
+val2: 8
